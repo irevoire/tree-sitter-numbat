@@ -1,0 +1,17 @@
+{
+  "name": "tree-sitter-numbat",
+  "version": "1.0.0",
+  "description": "Tree-sitter parser implementation for numbat",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tamo <irevoire@hotmail.fr>",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  }
+}
