@@ -50,11 +50,11 @@ module.exports = grammar({
     _statement: $ => choice(
       $.variable_decl,
       $.function_decl,
-      // $.dimension_decl,
-      // $.decorator,
-      // $.unit_decl,
-      // $.module_import,
-      // $.procedure_call,
+      $.dimension_decl,
+      $.decorator,
+      $.unit_decl,
+      $.module_import,
+      $.procedure_call,
       $._expression
     ),
     
@@ -104,26 +104,79 @@ module.exports = grammar({
       ")",
     ),
 
-    //! type_annotation →   bool | string | dimension_expr
+    // ============ DIMENSION DECLARATION
+    //! dimension_decl  →   "dimension" identifier ( "=" dimension_expr ) *
+    dimension_decl: $ => seq(
+      "dimension",
+      $.identifier,
+      repeat(seq(
+        "=",
+        $._dimension_expr
+      ))
+    ),
+
+
+    // ============ DECORATOR
+    //! decorator       →   "@" ( "metric_prefixes" | "binary_prefixes" | ( "aliases(" list_of_alsiases ")" ) )
+    decorator: $ => seq(
+      "@",
+      choice(
+        "metric_prefixes",
+        "binary_prefixes",
+        seq("aliases(", $._list_of_aliases, ")")
+      ),
+    ),
+
+    //! list_of_aliases →   "@" ( "metric_prefixes" | "binary_prefixes" | ( "aliases(" list_of_alsiases ")" ) )
+    _list_of_aliases: $ => seq(
+      repeat(seq(
+        $.identifier,
+        optional(seq(":", choice("long", "short", "both", "none"))),
+        ","
+      )),
+      seq(
+        $.identifier,
+        optional(seq(":", choice("long", "short", "both", "none"))),
+      )
+    ),
+
+    
+    // ============ UNIT DECLARATION
+    //! unit_decl       →   "unit" ( ":" dimension_expr ) ? ( "=" expression ) ?
+    unit_decl: $ => seq(
+      "unit",
+      optional(seq(
+        ":", $._dimension_expr
+      )),
+      optional(seq(
+        "=", $._expression
+      ))
+    ),
+
+    //! module_import   →   "use" ident ( "::" ident) *
+    module_import: $ => seq(
+      "use",
+      $.identifier,
+      repeat(seq(
+        "::", $.identifier
+      )),
+    ),
+
+    //! procedure_call   →   ( "print" | "assert_eq" | "type" ) "(" arguments ")"
+    procedure_call: $ => seq(
+      choice("print", "assert_eq", "type"),
+      "(",
+      $._arguments,
+      ")",
+    ),
+
+    //! type_annotation →   boolean | string | dimension_expr
     _type_annotation: $ => choice(
-      $.bool,
+      $.boolean,
       $.string,
       $._dimension_expr
     ),
 
-    //! bool            →   true | false
-    bool: $ => choice(
-      "true",
-      "false",
-    ),
-    
-    //! string          →   "\" ... "\""
-    string: $ => seq(
-      "\"",
-      repeat(/[^"]/),
-      "\"",
-    ),
-    
     //! dimension_expr  →   dim_factor
     _dimension_expr: $ => choice(
       $._dim_factor,

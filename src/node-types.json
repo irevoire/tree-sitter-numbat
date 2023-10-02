@@ -5,11 +5,6 @@
     "fields": {}
   },
   {
-    "type": "bool",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "boolean",
     "named": true,
     "fields": {}
@@ -621,6 +616,60 @@
     }
   },
   {
+    "type": "decorator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dimension_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "divide",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "minus",
+          "named": true
+        },
+        {
+          "type": "multiply",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "unicode_exponent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "divide",
     "named": true,
     "fields": {}
@@ -958,10 +1007,6 @@
           "named": true
         },
         {
-          "type": "bool",
-          "named": true
-        },
-        {
           "type": "boolean",
           "named": true
         },
@@ -1061,6 +1106,21 @@
     "type": "minus",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "module_import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "multiply",
@@ -1653,12 +1713,12 @@
     }
   },
   {
-    "type": "source_file",
+    "type": "procedure_call",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "bin_number",
@@ -1690,10 +1750,6 @@
         },
         {
           "type": "factorial",
-          "named": true
-        },
-        {
-          "type": "function_decl",
           "named": true
         },
         {
@@ -1729,6 +1785,113 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "decorator",
+          "named": true
+        },
+        {
+          "type": "dimension_decl",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "function_decl",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "module_import",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "procedure_call",
+          "named": true
+        },
+        {
           "type": "shebang",
           "named": true
         },
@@ -1742,6 +1905,10 @@
         },
         {
           "type": "unicode_power",
+          "named": true
+        },
+        {
+          "type": "unit_decl",
           "named": true
         },
         {
@@ -2049,6 +2216,109 @@
     }
   },
   {
+    "type": "unit_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "divide",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "minus",
+          "named": true
+        },
+        {
+          "type": "multiply",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_exponent",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable_decl",
     "named": true,
     "fields": {
@@ -2079,7 +2349,7 @@
             "named": false
           },
           {
-            "type": "bool",
+            "type": "boolean",
             "named": true
           },
           {
@@ -2257,6 +2527,10 @@
     "named": false
   },
   {
+    "type": "::",
+    "named": false
+  },
+  {
     "type": "<",
     "named": false
   },
@@ -2281,7 +2555,31 @@
     "named": false
   },
   {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "^",
+    "named": false
+  },
+  {
+    "type": "aliases(",
+    "named": false
+  },
+  {
+    "type": "assert_eq",
+    "named": false
+  },
+  {
+    "type": "binary_prefixes",
+    "named": false
+  },
+  {
+    "type": "both",
+    "named": false
+  },
+  {
+    "type": "dimension",
     "named": false
   },
   {
@@ -2313,6 +2611,18 @@
     "named": true
   },
   {
+    "type": "long",
+    "named": false
+  },
+  {
+    "type": "metric_prefixes",
+    "named": false
+  },
+  {
+    "type": "none",
+    "named": false
+  },
+  {
     "type": "per",
     "named": false
   },
@@ -2321,8 +2631,16 @@
     "named": true
   },
   {
+    "type": "print",
+    "named": false
+  },
+  {
     "type": "shebang",
     "named": true
+  },
+  {
+    "type": "short",
+    "named": false
   },
   {
     "type": "then",
@@ -2334,6 +2652,18 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "unit",
+    "named": false
+  },
+  {
+    "type": "use",
     "named": false
   },
   {
