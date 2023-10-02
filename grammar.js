@@ -1,9 +1,15 @@
-
 const PREC = {
+  string: 23,
+  hex_number: 22,
+  oct_number: 21,
+  bin_number: 20,
+  number: 19,
+  identifier: 18,
+
   dim_primary: 17,  
   dim_exponent: 16,
   dim_power: 15,
-  dim_factor: 14,  
+  dim_factor: 14,
 
   postfix_apply: 13,
   condition: 12,
@@ -27,8 +33,7 @@ module.exports = grammar({
   extras: $ => [/\s/, $.line_comment],
 
   conflicts: $ => [
-    [$._call],
-    [$._term]
+    [$._ifactor]
   ],
 
   word: $ => $.identifier,
@@ -138,7 +143,7 @@ module.exports = grammar({
     _dim_power: $ => prec(PREC.dim_power, seq(
       $._dimension_expr,
       choice(
-        seq($._power, $._dim_exponent),
+        seq($.power, $._dim_exponent),
         $.unicode_exponent,
       ),
     )),
@@ -161,99 +166,106 @@ module.exports = grammar({
     
     //! expression      →   postfix_apply
     _expression: $ => choice(
-      $._postfix_apply,
-      $._condition,
-      $._conversion,
-      $._comparison,
-      $._term,
-      $._factor,
-      $._per_factor,
-      $._negate,
+      $.postfix_apply,
+      $.condition,
+      $.conversion,
+      $.comparison,
+      $.term,
+      $.factor,
+      $.per_factor,
+      $.negate,
       // $._ifactor,
-      $._power,
-      $._factorial,
-      $._unicode_power,
-      $._call,
+      $.power,
+      $.factorial,
+      $.unicode_power,
+      $.call,
       $._primary,
     ),
 
     //! postfix_apply   →   condition ( "//" identifier ) *
-    _postfix_apply: $ => prec.left(PREC.postfix_apply, seq(
+    postfix_apply: $ => prec.right(PREC.postfix_apply, seq(
       $._expression,
-      repeat(seq("//", $.identifier))
+      "//",
+      $.identifier
     )),
 
     //! condition       →   "if" conversion "then" condition "else" condition | conversion
-    _condition: $ => prec.left(PREC.condition, choice(
-      seq("if", $._expression, "then", $._expression, "else", $._expression),
+    condition: $ => prec.left(PREC.condition, seq(
+      "if",
+      $._expression,
+      "then",
+      $._expression,
+      "else",
       $._expression
     )),
 
     //! conversion      →   comparison ( ( "→" | "->" | "to" ) comparison ) *
-    _conversion: $ => prec.left(PREC.conversion, seq(
-      $._expression,
-      choice("→", "->", "to"),
-      $._expression
+    conversion: $ => prec.left(PREC.conversion, seq(
+      field("left", $._expression),
+      field("op", choice("→", "->", "to")),
+      field("right", $._expression)
     )),
 
     //! comparison      →   term ( (">" | ">="| "≥" | "<" | "<=" | "≤" | "==" | "!=" | "≠" ) term ) *
-    _comparison: $ => prec.left(PREC.comparison, seq(
-      $._expression,
-      choice(">", ">=", "≥", "<=", "≤", "<", "==", "!=", "≠"),
-      $._expression,
+    comparison: $ => prec.left(PREC.comparison, seq(
+      field("left", $._expression),
+      field("op", choice(">", ">=", "≥", "<=", "≤", "<", "==", "!=", "≠")),
+      field("right", $._expression),
     )),
 
     //! term            →   factor ( ( "+" | "-") factor ) *
-    _term: $ => prec.left(PREC.term, seq(
-      $._expression,
-      choice($.plus, $.minus),
-      $._expression,
+    term: $ => prec.left(PREC.term, seq(
+      field("left", $._expression),
+      field("op", choice($.plus, $.minus)),
+      field("right", $._expression),
     )),
 
     //! factor          →   negate ( ( "*" | "/") per_factor ) *
-    _factor: $ => prec.left(PREC.factor, seq(
-      $._expression,
-      choice($.multiply, $.divide),
-      $._expression,
+    factor: $ => prec.left(PREC.factor, seq(
+      field("left", $._expression),
+      field("op", choice($.multiply, $.divide)),
+      field("right", $._expression),
     )),
 
     //! per_factor      →   negate ( "per" negate ) *
-    _per_factor: $ => prec.left(PREC.per_factor, seq(
-      $._expression,
-      "per",
-      $._expression,
+    per_factor: $ => prec.left(PREC.per_factor, seq(
+      field("left", $._expression),
+      field("op", "per"),
+      field("right", $._expression),
     )),
 
     //! negate          →   ( "-" negate ) | ifactor
-    _negate: $ => prec(PREC.negate, seq("-", $._expression)),
+    negate: $ => prec(PREC.negate, seq("-", $._expression)),
 
     //! ifactor         →   power ( " " power ) *
     _ifactor: $ => prec.left(PREC.ifactor, seq(
-      $._expression,
-      " ",
-      $._expression,
+      field("left", $._expression),
+      // space are automatically inserted
+      field("right", $._primary),
     )),
 
     //! power           →   factorial ( "^" "-" ? power ) ?
-    _power: $ => prec.left(PREC.power, seq(
-      $._expression,
+    power: $ => prec.left(PREC.power, seq(
+      field("left", $._expression),
       $.pow_symbol,
-      optional($.minus),
-      $._expression,
+      field("power", seq(
+        optional($.minus),
+        $._expression
+      ))
     )),
 
     //! factorial       →   unicode_power "!" *
-    _factorial: $ => prec(PREC.factorial, seq($._expression, "!")),
+    factorial: $ => prec(PREC.factorial, seq($._expression, "!")),
     
     //! unicode_power   →   call ( "⁻" ? ("¹" | "²" | "³" | "⁴" | "⁵" ) ) ?
-    _unicode_power: $ => prec(PREC.unicode_power, seq(
+    unicode_power: $ => prec(PREC.unicode_power, seq(
       $._expression,
       optional("⁻"),
       choice("¹", "²", "³", "⁴", "⁵")
     )),
 
     //! call            →   primary ( "(" arguments? ")" ) ?
-    _call: $ => prec(PREC.call, seq(
+    call: $ => prec(PREC.call, seq(
       $._expression,
       "(",
       optional($._arguments),
@@ -267,20 +279,49 @@ module.exports = grammar({
       $._expression
     ),
 
-    //! primary         →   number | hex-number | oct-number | bin-number | identifier | "(" expression ")"
+    //! primary         →   string | boolean | hex_number | oct_number | bin_number | number | identifier | "(" expression ")"
     _primary: $ => prec(PREC.primary, choice(
+      $.string,
+      $.boolean,
+      $.hex_number,
+      $.oct_number,
+      $.bin_number,
       $.number,
-      // $.hex_number,
-      // $.oct_number,
-      // $.bin_number,
       $.identifier,
       seq("(", $._expression, ")")
     )),
 
-    //! number          →   /[0-9][0-9_]*(\.[0-9][0-9]*)?/
-    number: $ => seq(
-      /[0-9][0-9_]*(\.[0-9][0-9]*)?/
+    // TODO: handle escaped strings
+    //! string          →   /"[^"]*"/
+    string: $ => prec(PREC.string, seq(
+      /"[^"]*"/
+    )),
+
+    //! boolean         →   true | false
+    boolean: $ => choice(
+      "true",
+      "false"
     ),
+
+    //! number          →   /[0-9][0-9_]*(\.([0-9][0-9_]*)?)?([eE][+-]?[0-9][0-9_]*)?/
+    number: $ => prec(PREC.number, seq(
+      /[0-9][0-9_]*(\.([0-9][0-9_]*)?)?([eE][+-]?[0-9][0-9_]*)?/
+    )),
+
+    //! hex_number      →   /0x[0-9a-fA-F]*/
+    hex_number: $ => prec(PREC.hex_number, seq(
+      /0x[0-9a-fA-F]*/
+    )),
+
+    //! oct_number      →   /0o[0-7]*/
+    oct_number: $ => prec(PREC.hex_number, seq(
+      /0o[0-7]*/
+    )),
+
+    //! bin_number      →   /0b[01]*/
+    bin_number: $ => prec(PREC.hex_number, seq(
+      /0b[01]*/
+    )),
 
     //! identifier      →   [a-zA-Z_][a-zA-Z_0-9]*
     identifier: $ => /[a-zA-Z_][a-zA-Z_0-9]*/,

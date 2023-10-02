@@ -1,13 +1,916 @@
 [
   {
+    "type": "bin_number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "bool",
     "named": true,
     "fields": {}
   },
   {
+    "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comparison",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": "≠",
+            "named": false
+          },
+          {
+            "type": "≤",
+            "named": false
+          },
+          {
+            "type": "≥",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conversion",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "to",
+            "named": false
+          },
+          {
+            "type": "→",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "divide",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "factor",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "divide",
+            "named": true
+          },
+          {
+            "type": "multiply",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "factorial",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "function_decl",
@@ -23,20 +926,6 @@
           }
         ]
       },
-      "term": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "minus",
-            "named": true
-          },
-          {
-            "type": "plus",
-            "named": true
-          }
-        ]
-      },
       "type_parameter": {
         "multiple": true,
         "required": false,
@@ -62,14 +951,50 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
         {
           "type": "bool",
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
           "type": "divide",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
           "named": true
         },
         {
@@ -85,11 +1010,27 @@
           "named": true
         },
         {
+          "type": "negate",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
         {
-          "type": "pow_symbol",
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
           "named": true
         },
         {
@@ -97,11 +1038,24 @@
           "named": true
         },
         {
+          "type": "term",
+          "named": true
+        },
+        {
           "type": "unicode_exponent",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "hex_number",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "minus",
@@ -114,44 +1068,47 @@
     "fields": {}
   },
   {
-    "type": "number",
+    "type": "negate",
     "named": true,
-    "fields": {}
-  },
-  {
-    "type": "pow_symbol",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "source_file",
-    "named": true,
-    "fields": {
-      "term": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "minus",
-            "named": true
-          },
-          {
-            "type": "plus",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
-          "type": "divide",
+          "type": "bin_number",
           "named": true
         },
         {
-          "type": "function_decl",
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
           "named": true
         },
         {
@@ -159,11 +1116,7 @@
           "named": true
         },
         {
-          "type": "minus",
-          "named": true
-        },
-        {
-          "type": "multiply",
+          "type": "negate",
           "named": true
         },
         {
@@ -171,11 +1124,624 @@
           "named": true
         },
         {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "oct_number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "per_factor",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "per",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "postfix_apply",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pow_symbol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "power",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "power": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "minus",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
           "type": "pow_symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "function_decl",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
           "named": true
         },
         {
           "type": "shebang",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
           "named": true
         },
         {
@@ -191,9 +1757,296 @@
     "fields": {}
   },
   {
+    "type": "term",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "minus",
+            "named": true
+          },
+          {
+            "type": "plus",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "bin_number",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "oct_number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "unicode_exponent",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "unicode_power",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "conversion",
+          "named": true
+        },
+        {
+          "type": "factor",
+          "named": true
+        },
+        {
+          "type": "factorial",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        },
+        {
+          "type": "per_factor",
+          "named": true
+        },
+        {
+          "type": "postfix_apply",
+          "named": true
+        },
+        {
+          "type": "power",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "unicode_power",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "variable_decl",
@@ -209,36 +2062,10 @@
           }
         ]
       },
-      "term": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "minus",
-            "named": true
-          },
-          {
-            "type": "plus",
-            "named": true
-          }
-        ]
-      },
       "type_parameter": {
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": " ",
-            "named": false
-          },
-          {
-            "type": "!",
-            "named": false
-          },
-          {
-            "type": "!=",
-            "named": false
-          },
           {
             "type": "(",
             "named": false
@@ -248,43 +2075,7 @@
             "named": false
           },
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "-",
-            "named": false
-          },
-          {
-            "type": "->",
-            "named": false
-          },
-          {
-            "type": "//",
-            "named": false
-          },
-          {
             "type": ":",
-            "named": false
-          },
-          {
-            "type": "<",
-            "named": false
-          },
-          {
-            "type": "<=",
-            "named": false
-          },
-          {
-            "type": "==",
-            "named": false
-          },
-          {
-            "type": ">",
-            "named": false
-          },
-          {
-            "type": ">=",
             "named": false
           },
           {
@@ -296,16 +2087,8 @@
             "named": true
           },
           {
-            "type": "else",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
-          },
-          {
-            "type": "if",
-            "named": false
           },
           {
             "type": "minus",
@@ -320,15 +2103,7 @@
             "named": true
           },
           {
-            "type": "per",
-            "named": false
-          },
-          {
-            "type": "plus",
-            "named": true
-          },
-          {
-            "type": "pow_symbol",
+            "type": "power",
             "named": true
           },
           {
@@ -336,56 +2111,8 @@
             "named": true
           },
           {
-            "type": "then",
-            "named": false
-          },
-          {
-            "type": "to",
-            "named": false
-          },
-          {
             "type": "unicode_exponent",
             "named": true
-          },
-          {
-            "type": "²",
-            "named": false
-          },
-          {
-            "type": "³",
-            "named": false
-          },
-          {
-            "type": "¹",
-            "named": false
-          },
-          {
-            "type": "⁴",
-            "named": false
-          },
-          {
-            "type": "⁵",
-            "named": false
-          },
-          {
-            "type": "⁻",
-            "named": false
-          },
-          {
-            "type": "→",
-            "named": false
-          },
-          {
-            "type": "≠",
-            "named": false
-          },
-          {
-            "type": "≤",
-            "named": false
-          },
-          {
-            "type": "≥",
-            "named": false
           }
         ]
       },
@@ -393,18 +2120,6 @@
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": " ",
-            "named": false
-          },
-          {
-            "type": "!",
-            "named": false
-          },
-          {
-            "type": "!=",
-            "named": false
-          },
           {
             "type": "(",
             "named": false
@@ -414,63 +2129,47 @@
             "named": false
           },
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "-",
-            "named": false
-          },
-          {
-            "type": "->",
-            "named": false
-          },
-          {
-            "type": "//",
-            "named": false
-          },
-          {
-            "type": "<",
-            "named": false
-          },
-          {
-            "type": "<=",
-            "named": false
-          },
-          {
-            "type": "==",
-            "named": false
-          },
-          {
-            "type": ">",
-            "named": false
-          },
-          {
-            "type": ">=",
-            "named": false
-          },
-          {
-            "type": "divide",
+            "type": "bin_number",
             "named": true
           },
           {
-            "type": "else",
-            "named": false
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "hex_number",
+            "named": true
           },
           {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "minus",
-            "named": true
-          },
-          {
-            "type": "multiply",
+            "type": "negate",
             "named": true
           },
           {
@@ -478,72 +2177,36 @@
             "named": true
           },
           {
-            "type": "per",
-            "named": false
-          },
-          {
-            "type": "plus",
+            "type": "oct_number",
             "named": true
           },
           {
-            "type": "pow_symbol",
+            "type": "per_factor",
             "named": true
           },
           {
-            "type": "then",
-            "named": false
+            "type": "postfix_apply",
+            "named": true
           },
           {
-            "type": "to",
-            "named": false
+            "type": "power",
+            "named": true
           },
           {
-            "type": "²",
-            "named": false
+            "type": "string",
+            "named": true
           },
           {
-            "type": "³",
-            "named": false
+            "type": "term",
+            "named": true
           },
           {
-            "type": "¹",
-            "named": false
-          },
-          {
-            "type": "⁴",
-            "named": false
-          },
-          {
-            "type": "⁵",
-            "named": false
-          },
-          {
-            "type": "⁻",
-            "named": false
-          },
-          {
-            "type": "→",
-            "named": false
-          },
-          {
-            "type": "≠",
-            "named": false
-          },
-          {
-            "type": "≤",
-            "named": false
-          },
-          {
-            "type": "≥",
-            "named": false
+            "type": "unicode_power",
+            "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": " ",
-    "named": false
   },
   {
     "type": "!",
@@ -551,10 +2214,6 @@
   },
   {
     "type": "!=",
-    "named": false
-  },
-  {
-    "type": "\"",
     "named": false
   },
   {
