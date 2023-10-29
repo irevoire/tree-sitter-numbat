@@ -30,7 +30,13 @@ const PREC = {
 
 module.exports = grammar({
   name: 'numbat',
+
   extras: $ => [/\s/, $.line_comment],
+
+  externals: $ => [
+    $._string_content,
+    $._float,
+  ],
 
   conflicts: $ => [
     [$._ifactor]
@@ -356,9 +362,14 @@ module.exports = grammar({
       "false"
     ),
 
-    //! number          →   /[0-9][0-9_]*(\.([0-9][0-9_]*)?)?([eE][+-]?[0-9][0-9_]*)?/
-    number: $ => prec(PREC.number, seq(
-      /[0-9][0-9_]*(\.([0-9][0-9_]*)?)?([eE][+-]?[0-9][0-9_]*)?/
+    number: $ => prec(PREC.number, choice(
+      token(choice(
+          /[0-9][0-9_]*/,
+          /0x[0-9a-fA-F_]+/,
+          /0b[01_]+/,
+          /0o[0-7_]+/,
+        )),
+        $._float,
     )),
 
     //! hex_number      →   /0x[0-9a-fA-F]*/

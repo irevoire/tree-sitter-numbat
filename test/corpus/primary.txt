@@ -15,15 +15,16 @@ Integer literals
   (number)
   (number)
   (number)
-  (hex_number)
-  (oct_number)
-  (bin_number))
+  (number)
+  (number)
+  (number))
 
 ================================================================================
 Floating-point literals
 ================================================================================
 
 123.123
+.2
 2.
 123.0
 0.1
@@ -41,6 +42,9 @@ Floating-point literals
 --------------------------------------------------------------------------------
 
 (source_file
+  (number)
+  (ERROR
+    (UNEXPECTED '.'))
   (number)
   (number)
   (number)

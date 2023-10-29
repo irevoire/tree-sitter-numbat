@@ -1425,11 +1425,35 @@
       "type": "PREC",
       "value": 19,
       "content": {
-        "type": "SEQ",
+        "type": "CHOICE",
         "members": [
           {
-            "type": "PATTERN",
-            "value": "[0-9][0-9_]*(\\.([0-9][0-9_]*)?)?([eE][+-]?[0-9][0-9_]*)?"
+            "type": "TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9_]*"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "0x[0-9a-fA-F_]+"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "0b[01_]+"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "0o[0-7_]+"
+                }
+              ]
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_float"
           }
         ]
       }
@@ -1602,7 +1626,16 @@
     ]
   ],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_string_content"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_float"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

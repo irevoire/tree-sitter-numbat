@@ -15,6 +15,21 @@ Unary operator expressions
 
 -num
 fact!
+4!
+4 !
+4.0!
+(4)!
+(4) !
+3!^3
+(3!)^3
+3²!
+-1
+- 1
+-1.0
+-(1)
+- (1)
+-.65
+---1
 
 --------------------------------------------------------------------------------
 
@@ -22,7 +37,61 @@ fact!
   (negate
     (identifier))
   (factorial
-    (identifier)))
+    (identifier))
+  (factorial
+    (number))
+  (factorial
+    (number))
+  (factorial
+    (call
+      (factorial
+        (call
+          (factorial
+            (number))
+          (ERROR
+            (number))))
+      (ERROR
+        (number))))
+  (power
+    (call
+      (power
+        (factorial
+          (number))
+        (pow_symbol)
+        (number))
+      (ERROR
+        (factorial
+          (number))))
+    (pow_symbol)
+    (number))
+  (term
+    (term
+      (term
+        (term
+          (term
+            (term
+              (term
+                (factorial
+                  (unicode_power
+                    (number)))
+                (minus)
+                (number))
+              (minus)
+              (number))
+            (minus)
+            (number))
+          (minus)
+          (number))
+        (minus)
+        (number))
+      (minus)
+      (ERROR
+        (UNEXPECTED '.'))
+      (number))
+    (minus)
+    (negate
+      (negate
+        (number)))))
 
 ================================================================================
 Binary operator expressions
@@ -160,15 +229,15 @@ let y = if x == 5 then 10  else  15
 (source_file
   (condition
     (comparison
-      left: (identifier)
-      right: (number))
+      (identifier)
+      (number))
     (number)
     (number))
   (variable_decl
-    name: (identifier)
-    value: (condition
+    (identifier)
+    (condition
       (comparison
-        left: (identifier)
-        right: (number))
+        (identifier)
+        (number))
       (number)
       (number))))
