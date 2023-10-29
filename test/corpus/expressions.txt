@@ -43,51 +43,37 @@ fact!
   (factorial
     (number))
   (factorial
-    (call
-      (factorial
-        (call
-          (factorial
-            (number))
-          (ERROR
-            (number))))
-      (ERROR
-        (number))))
+    (number))
+  (factorial
+    (number))
+  (factorial
+    (number))
   (power
-    (call
-      (power
-        (factorial
-          (number))
-        (pow_symbol)
-        (number))
-      (ERROR
-        (factorial
-          (number))))
+    (factorial
+      (number))
     (pow_symbol)
     (number))
-  (term
-    (term
-      (term
-        (term
-          (term
-            (term
-              (factorial
-                (unicode_power
-                  (number)))
-              (minus)
-              (number))
-            (minus)
-            (number))
-          (minus)
-          (number))
-        (minus)
-        (number))
-      (minus)
+  (power
+    (factorial
       (number))
-    (minus)
+    (pow_symbol)
     (number))
-  (term
-    (number)
-    (minus)
+  (factorial
+    (unicode_power
+      (number)))
+  (negate
+    (number))
+  (negate
+    (number))
+  (negate
+    (number))
+  (negate
+    (number))
+  (negate
+    (number))
+  (negate
+    (number))
+  (negate
     (negate
       (negate
         (number)))))
@@ -143,16 +129,35 @@ Grouped expressions
 --------------------------------------------------------------------------------
 
 (source_file
-  (call
+  (number)
+  (factor
     (number)
-    (ERROR
-      (factor
-        (number)
-        (multiply)
-        (term
-          (number)
-          (plus)
-          (number))))))
+    (multiply)
+    (term
+      (number)
+      (plus)
+      (number))))
+
+================================================================================
+Call expressions
+================================================================================
+
+foo()
+truc(1)
+add(1, 2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (call
+    (identifier))
+  (call
+    (identifier)
+    (number))
+  (call
+    (identifier)
+    (number)
+    (number)))
 
 ================================================================================
 Assignment expressions
@@ -183,37 +188,18 @@ let x = (pow(2) + 2) * 2
     name: (identifier)
     value: (call
       (identifier)
-      (ERROR
-        (number))))
+      (number)))
   (variable_decl
     name: (identifier)
     value: (factor
       left: (term
         left: (call
           (identifier)
-          (ERROR
-            (number)))
+          (number))
         op: (plus)
         right: (number))
       op: (multiply)
       right: (number))))
-
-================================================================================
-Call expressions
-================================================================================
-
-foo()
-add(1, 2)
-
---------------------------------------------------------------------------------
-
-(source_file
-  (call
-    (identifier))
-  (call
-    (identifier)
-    (number)
-    (number)))
 
 ================================================================================
 If expressions

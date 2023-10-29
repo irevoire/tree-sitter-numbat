@@ -56,7 +56,6 @@ Floating-point literals
   (number)
   (number)
   (number)
-  (number)
   (number))
 
 ================================================================================

@@ -43,16 +43,12 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
     bool has_fraction = false, has_exponent = false;
     lexer->result_symbol = FLOAT;
 
-    if (lexer->lookahead == '.') {
-      advance(lexer);
-      has_fraction = true;
-    } else {
+    if (lexer->lookahead != '.') {
       advance(lexer);
       while (is_num_char(lexer->lookahead)) {
         advance(lexer);
       }
     }
-
     if (lexer->lookahead == '.') {
       has_fraction = true;
       advance(lexer);

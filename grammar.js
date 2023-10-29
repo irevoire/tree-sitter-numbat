@@ -31,7 +31,7 @@ const PREC = {
 module.exports = grammar({
   name: 'numbat',
 
-  extras: $ => [/\s/, $.line_comment],
+  extras: $ => [/[\t ]*/, $.line_comment],
 
   externals: $ => [
     $._string_content,
@@ -47,7 +47,8 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(
       optional($.shebang),
-      repeat($._statement),
+      /\n/,
+      repeat(seq(optional($._statement), /\n/)),
     ),
 
     shebang: _ => /#!.*/,
@@ -238,6 +239,7 @@ module.exports = grammar({
       $.factorial,
       $.unicode_power,
       $.call,
+      $._parenthesized_expression,
       $._primary,
     ),
 
@@ -251,11 +253,11 @@ module.exports = grammar({
     //! condition       →   "if" conversion "then" condition "else" condition | conversion
     condition: $ => prec.left(PREC.condition, seq(
       "if",
-      $._expression,
+      field("if", $._expression),
       "then",
-      $._expression,
+      field("then", $._expression),
       "else",
-      $._expression
+      field("else", $._expression)
     )),
 
     //! conversion      →   comparison ( ( "→" | "->" | "to" ) comparison ) *
@@ -318,14 +320,14 @@ module.exports = grammar({
     
     //! unicode_power   →   call ( "⁻" ? ("¹" | "²" | "³" | "⁴" | "⁵" ) ) ?
     unicode_power: $ => prec(PREC.unicode_power, seq(
-      $._expression,
+      field("left", $._expression),
       optional("⁻"),
-      choice("¹", "²", "³", "⁴", "⁵")
+      choice("¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹")
     )),
 
     //! call            →   primary ( "(" arguments? ")" ) ?
     call: $ => prec(PREC.call, seq(
-      $._expression,
+      $.identifier,
       "(",
       optional($._arguments),
       ")"
@@ -334,20 +336,24 @@ module.exports = grammar({
     //! arguments       →   expression ( "," expression ) *
     _arguments: $ => seq(
       $._expression,
-      ",",
-      $._expression
+      optional(seq(
+        ",",
+        $._expression
+      ))
+    ),
+
+    _parenthesized_expression: $ => seq(
+      '(',
+      $._expression,
+      ')',
     ),
 
     //! primary         →   string | boolean | hex_number | oct_number | bin_number | number | identifier | "(" expression ")"
     _primary: $ => prec(PREC.primary, choice(
       $.string,
       $.boolean,
-      $.hex_number,
-      $.oct_number,
-      $.bin_number,
       $.number,
       $.identifier,
-      seq("(", $._expression, ")")
     )),
 
     //! string          →   /"[^"]*"/
@@ -384,21 +390,6 @@ module.exports = grammar({
           /0o[0-7_]+/,
         )),
         $._float,
-    )),
-
-    //! hex_number      →   /0x[0-9a-fA-F]*/
-    hex_number: $ => prec(PREC.hex_number, seq(
-      /0x[0-9a-fA-F]*/
-    )),
-
-    //! oct_number      →   /0o[0-7]*/
-    oct_number: $ => prec(PREC.hex_number, seq(
-      /0o[0-7]*/
-    )),
-
-    //! bin_number      →   /0b[01]*/
-    bin_number: $ => prec(PREC.hex_number, seq(
-      /0b[01]*/
     )),
 
     //! identifier      →   [a-zA-Z_][a-zA-Z_0-9]*
