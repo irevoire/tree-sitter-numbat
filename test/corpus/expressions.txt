@@ -70,12 +70,9 @@ fact!
         (term
           (term
             (term
-              (term
-                (factorial
-                  (unicode_power
-                    (number)))
-                (minus)
-                (number))
+              (factorial
+                (unicode_power
+                  (number)))
               (minus)
               (number))
             (minus)
@@ -85,9 +82,11 @@ fact!
         (minus)
         (number))
       (minus)
-      (ERROR
-        (UNEXPECTED '.'))
       (number))
+    (minus)
+    (number))
+  (term
+    (number)
     (minus)
     (negate
       (negate

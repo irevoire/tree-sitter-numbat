@@ -1402,8 +1402,69 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "PATTERN",
-            "value": "\"[^\"]*\""
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "b?\""
+            },
+            "named": false,
+            "value": "\""
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_escape_sequence"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_string_content"
+                }
+              ]
+            }
+          },
+          {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "\""
+            }
+          }
+        ]
+      }
+    },
+    "_escape_sequence": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^xu]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "u[0-9a-fA-F]{4}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "u{[0-9a-fA-F]+}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "x[0-9a-fA-F]{2}"
+              }
+            ]
           }
         ]
       }

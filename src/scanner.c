@@ -39,15 +39,19 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
 
   while (iswspace(lexer->lookahead)) lexer->advance(lexer, true);
 
-  if (valid_symbols[FLOAT] && iswdigit(lexer->lookahead)) {
+  if (valid_symbols[FLOAT] && (iswdigit(lexer->lookahead) || lexer->lookahead == '.')) {
+    bool has_fraction = false, has_exponent = false;
     lexer->result_symbol = FLOAT;
 
-    advance(lexer);
-    while (is_num_char(lexer->lookahead)) {
+    if (lexer->lookahead == '.') {
       advance(lexer);
+      has_fraction = true;
+    } else {
+      advance(lexer);
+      while (is_num_char(lexer->lookahead)) {
+        advance(lexer);
+      }
     }
-
-    bool has_fraction = false, has_exponent = false;
 
     if (lexer->lookahead == '.') {
       has_fraction = true;

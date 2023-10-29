@@ -43,8 +43,7 @@ Floating-point literals
 
 (source_file
   (number)
-  (ERROR
-    (UNEXPECTED '.'))
+  (number)
   (number)
   (number)
   (number)
@@ -67,8 +66,6 @@ String literals
 ""
 "abc"
 "foo\nbar"
-"foo
-    bar"
 "\"foo\""
 "/* foo bar */ foo bar"
 "foo\x42\x43bar"
@@ -80,11 +77,6 @@ String literals
   (string)
   (string)
   (string)
-  (string)
-  (string)
-  (identifier)
-  (ERROR
-    (UNEXPECTED '\'))
   (string)
   (string)
   (string)

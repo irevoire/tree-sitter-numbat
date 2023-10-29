@@ -350,11 +350,25 @@ module.exports = grammar({
       seq("(", $._expression, ")")
     )),
 
-    // TODO: handle escaped strings
     //! string          →   /"[^"]*"/
     string: $ => prec(PREC.string, seq(
-      /"[^"]*"/
+      alias(/b?"/, '"'),
+      repeat(choice(
+        $._escape_sequence,
+        $._string_content,
+      )),
+      token.immediate('"'),
     )),
+
+    _escape_sequence: _ => token.immediate(
+      seq('\\',
+        choice(
+          /[^xu]/,
+          /u[0-9a-fA-F]{4}/,
+          /u{[0-9a-fA-F]+}/,
+          /x[0-9a-fA-F]{2}/,
+        ),
+      )),
 
     //! boolean         →   true | false
     boolean: $ => choice(
