@@ -1,0 +1,174 @@
+================================================================================
+Identifiers
+================================================================================
+
+abc
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (identifier))
+
+================================================================================
+Unary operator expressions
+================================================================================
+
+-num
+fact!
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (negate
+    (identifier))
+  (factorial
+    (identifier)))
+
+================================================================================
+Binary operator expressions
+================================================================================
+
+a * b
+a / b
+a + b
+a - b
+a > b
+a < b
+a == b
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (factor
+    (identifier)
+    (multiply)
+    (identifier))
+  (factor
+    (identifier)
+    (divide)
+    (identifier))
+  (term
+    (identifier)
+    (plus)
+    (identifier))
+  (term
+    (identifier)
+    (minus)
+    (identifier))
+  (comparison
+    (identifier)
+    (identifier))
+  (comparison
+    (identifier)
+    (identifier))
+  (comparison
+    (identifier)
+    (identifier)))
+
+================================================================================
+Grouped expressions
+================================================================================
+
+(0)
+(2 * (3 + 4))
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (call
+    (number)
+    (ERROR
+      (factor
+        (number)
+        (multiply)
+        (term
+          (number)
+          (plus)
+          (number))))))
+
+================================================================================
+Assignment expressions
+================================================================================
+
+let x = y
+let x = 2
+let x = 2 + 2
+let x = pow(2)
+let x = (pow(2) + 2) * 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_decl
+    name: (identifier)
+    value: (identifier))
+  (variable_decl
+    name: (identifier)
+    value: (number))
+  (variable_decl
+    name: (identifier)
+    value: (term
+      left: (number)
+      op: (plus)
+      right: (number)))
+  (variable_decl
+    name: (identifier)
+    value: (call
+      (identifier)
+      (ERROR
+        (number))))
+  (variable_decl
+    name: (identifier)
+    value: (factor
+      left: (term
+        left: (call
+          (identifier)
+          (ERROR
+            (number)))
+        op: (plus)
+        right: (number))
+      op: (multiply)
+      right: (number))))
+
+================================================================================
+Call expressions
+================================================================================
+
+foo()
+add(1, 2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (call
+    (identifier))
+  (call
+    (identifier)
+    (number)
+    (number)))
+
+================================================================================
+If expressions
+================================================================================
+
+if n == 1 then 2 else 3
+
+let y = if x == 5 then 10  else  15
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (condition
+    (comparison
+      left: (identifier)
+      right: (number))
+    (number)
+    (number))
+  (variable_decl
+    name: (identifier)
+    value: (condition
+      (comparison
+        left: (identifier)
+        right: (number))
+      (number)
+      (number))))
