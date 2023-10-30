@@ -1,0 +1,21 @@
+================================================================================
+Procedure call
+================================================================================
+
+print("Hello, World!")
+assert_eq(1 == 1)
+type(2 < 3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (procedure_call
+    (string))
+  (procedure_call
+    (comparison
+      (number)
+      (number)))
+  (procedure_call
+    (comparison
+      (number)
+      (number))))
