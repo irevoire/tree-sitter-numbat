@@ -82,10 +82,12 @@ module.exports = grammar({
       field("name", $.identifier),
       field("type_parameter", optional($._fn_decl_generic)),
       $._fn_decl_param,
-      "->",
-      $._type_annotation,
+      optional(seq(
+        "->",
+        $._type_annotation,
+      )),
       "=",
-      $._expression
+      field("body", $._expression)
     ),
 
     //! fn_decl_generic →   "<" ( identifier "," ) * identifier ? ">"

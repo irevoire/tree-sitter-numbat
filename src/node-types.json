@@ -1017,6 +1017,84 @@
     "type": "function_decl",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1052,38 +1130,14 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "boolean",
           "named": true
         },
         {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "condition",
-          "named": true
-        },
-        {
-          "type": "conversion",
-          "named": true
-        },
-        {
           "type": "divide",
-          "named": true
-        },
-        {
-          "type": "factor",
-          "named": true
-        },
-        {
-          "type": "factorial",
           "named": true
         },
         {
@@ -1099,19 +1153,7 @@
           "named": true
         },
         {
-          "type": "negate",
-          "named": true
-        },
-        {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "per_factor",
-          "named": true
-        },
-        {
-          "type": "postfix_apply",
           "named": true
         },
         {
@@ -1123,15 +1165,7 @@
           "named": true
         },
         {
-          "type": "term",
-          "named": true
-        },
-        {
           "type": "unicode_exponent",
-          "named": true
-        },
-        {
-          "type": "unicode_power",
           "named": true
         }
       ]

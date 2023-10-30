@@ -1,0 +1,69 @@
+================================================================================
+Function definition
+================================================================================
+
+fn pi() = 3.14
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_decl
+    (identifier)
+    (number)))
+
+================================================================================
+Function definition with parameters
+================================================================================
+
+fn pi(n) = n * 3.14
+fn multipi(a, b, c) = a * 3.14 * b * c
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_decl
+    (identifier)
+    (identifier)
+    (factor
+      (identifier)
+      (multiply)
+      (number)))
+  (function_decl
+    (identifier)
+    (identifier)
+    (identifier)
+    (identifier)
+    (factor
+      (factor
+        (factor
+          (identifier)
+          (multiply)
+          (number))
+        (multiply)
+        (identifier))
+      (multiply)
+      (identifier))))
+
+================================================================================
+Function definition with types
+================================================================================
+
+fn pi() -> Scalar = 3.14
+fn pi2(n: Scalar) -> Scalar = n * 3.14
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_decl
+    (identifier)
+    (identifier)
+    (number))
+  (function_decl
+    (identifier)
+    (identifier)
+    (identifier)
+    (identifier)
+    (factor
+      (identifier)
+      (multiply)
+      (number))))
