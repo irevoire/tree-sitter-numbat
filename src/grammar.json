@@ -9,17 +9,22 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "shebang"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "shebang"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "\\n"
+                }
+              ]
             },
             {
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\n"
         },
         {
           "type": "REPEAT",
@@ -40,7 +45,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "\\n"
+                "value": "\\r?\\n"
               }
             ]
           }
@@ -867,6 +872,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "ifactor"
+        },
+        {
+          "type": "SYMBOL",
           "name": "power"
         },
         {
@@ -1207,7 +1216,7 @@
         ]
       }
     },
-    "_ifactor": {
+    "ifactor": {
       "type": "PREC_LEFT",
       "value": 5,
       "content": {
@@ -1709,19 +1718,18 @@
   },
   "extras": [
     {
-      "type": "PATTERN",
-      "value": "[\\t ]*"
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": " "
+      }
     },
     {
       "type": "SYMBOL",
       "name": "line_comment"
     }
   ],
-  "conflicts": [
-    [
-      "_ifactor"
-    ]
-  ],
+  "conflicts": [],
   "precedences": [],
   "externals": [
     {

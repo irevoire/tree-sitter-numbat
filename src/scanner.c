@@ -37,8 +37,6 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
     return has_content;
   }
 
-  while (iswspace(lexer->lookahead)) lexer->advance(lexer, true);
-
   if (valid_symbols[FLOAT] && (iswdigit(lexer->lookahead) || lexer->lookahead == '.')) {
     bool has_fraction = false, has_exponent = false;
     lexer->result_symbol = FLOAT;
@@ -85,18 +83,6 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
     }
 
     if (!has_exponent && !has_fraction) return false;
-
-    if (lexer->lookahead != 'u' && lexer->lookahead != 'i' && lexer->lookahead != 'f') {
-      return true;
-    }
-    advance(lexer);
-    if (!iswdigit(lexer->lookahead)) {
-      return true;
-    }
-
-    while (iswdigit(lexer->lookahead)) {
-      advance(lexer);
-    }
 
     lexer->mark_end(lexer);
     return true;

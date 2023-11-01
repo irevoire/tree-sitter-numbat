@@ -7,7 +7,9 @@ abc
 --------------------------------------------------------------------------------
 
 (source_file
-  (identifier))
+  (identifier)
+  (factorial
+    (number)))
 
 ================================================================================
 Unary operator expressions
@@ -89,6 +91,7 @@ a - b
 a > b
 a < b
 a == b
+a b
 
 --------------------------------------------------------------------------------
 
@@ -116,6 +119,9 @@ a == b
     (identifier)
     (identifier))
   (comparison
+    (identifier)
+    (identifier))
+  (ifactor
     (identifier)
     (identifier)))
 

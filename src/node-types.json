@@ -45,6 +45,10 @@
           "named": true
         },
         {
+          "type": "ifactor",
+          "named": true
+        },
+        {
           "type": "negate",
           "named": true
         },
@@ -125,6 +129,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -248,6 +256,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -332,6 +344,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -410,6 +426,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -485,6 +505,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -569,6 +593,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -665,6 +693,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -811,6 +843,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -903,6 +939,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -976,6 +1016,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ifactor",
           "named": true
         },
         {
@@ -1059,6 +1103,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -1172,6 +1220,116 @@
     }
   },
   {
+    "type": "ifactor",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "conversion",
+            "named": true
+          },
+          {
+            "type": "factor",
+            "named": true
+          },
+          {
+            "type": "factorial",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
+            "named": true
+          },
+          {
+            "type": "negate",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "per_factor",
+            "named": true
+          },
+          {
+            "type": "postfix_apply",
+            "named": true
+          },
+          {
+            "type": "power",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "term",
+            "named": true
+          },
+          {
+            "type": "unicode_power",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "minus",
     "named": true,
     "fields": {}
@@ -1234,6 +1392,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ifactor",
           "named": true
         },
         {
@@ -1325,6 +1487,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -1413,6 +1579,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -1486,6 +1656,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ifactor",
           "named": true
         },
         {
@@ -1577,6 +1751,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -1652,6 +1830,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {
@@ -1745,6 +1927,10 @@
           "named": true
         },
         {
+          "type": "ifactor",
+          "named": true
+        },
+        {
           "type": "negate",
           "named": true
         },
@@ -1829,6 +2015,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ifactor",
           "named": true
         },
         {
@@ -1940,6 +2130,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -2032,6 +2226,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -2121,6 +2319,10 @@
             "named": true
           },
           {
+            "type": "ifactor",
+            "named": true
+          },
+          {
             "type": "negate",
             "named": true
           },
@@ -2198,6 +2400,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ifactor",
           "named": true
         },
         {
@@ -2357,6 +2563,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ifactor",
             "named": true
           },
           {

@@ -31,24 +31,19 @@ const PREC = {
 module.exports = grammar({
   name: 'numbat',
 
-  extras: $ => [/[\t ]*/, $.line_comment],
+  extras: $ => [token(" "), $.line_comment],
 
   externals: $ => [
     $._string_content,
     $._float,
   ],
 
-  conflicts: $ => [
-    [$._ifactor]
-  ],
-
   word: $ => $.identifier,
 
   rules: {
     source_file: $ => seq(
-      optional($.shebang),
-      /\n/,
-      repeat(seq(optional($._statement), /\n/)),
+      optional(seq($.shebang, /\n/)),
+      repeat(seq(optional($._statement), /\r?\n/)),
     ),
 
     shebang: _ => /#!.*/,
@@ -236,7 +231,7 @@ module.exports = grammar({
       $.factor,
       $.per_factor,
       $.negate,
-      // $._ifactor,
+      $.ifactor,
       $.power,
       $.factorial,
       $.unicode_power,
@@ -301,7 +296,7 @@ module.exports = grammar({
     negate: $ => prec(PREC.negate, seq("-", $._expression)),
 
     //! ifactor         →   power ( " " power ) *
-    _ifactor: $ => prec.left(PREC.ifactor, seq(
+    ifactor: $ => prec.left(PREC.ifactor, seq(
       field("left", $._expression),
       // space are automatically inserted
       field("right", $._primary),
