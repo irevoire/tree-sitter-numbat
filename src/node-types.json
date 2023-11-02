@@ -1,10 +1,5 @@
 [
   {
-    "type": "boolean",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "divide",
     "named": true,
     "fields": {}
@@ -18,23 +13,11 @@
         "required": true,
         "types": [
           {
-            "type": "boolean",
-            "named": true
-          },
-          {
             "type": "factor",
             "named": true
           },
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "number",
-            "named": true
-          },
-          {
-            "type": "string",
             "named": true
           }
         ]
@@ -58,33 +41,16 @@
         "required": true,
         "types": [
           {
-            "type": "boolean",
-            "named": true
-          },
-          {
             "type": "factor",
-            "named": true
-          },
-          {
-            "type": "identifier",
             "named": true
           },
           {
             "type": "number",
             "named": true
-          },
-          {
-            "type": "string",
-            "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "minus",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "multiply",
@@ -97,83 +63,6 @@
     "fields": {}
   },
   {
-    "type": "pow_symbol",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "power",
-    "named": true,
-    "fields": {
-      "left": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "boolean",
-            "named": true
-          },
-          {
-            "type": "factor",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          }
-        ]
-      },
-      "power": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "boolean",
-            "named": true
-          },
-          {
-            "type": "factor",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "minus",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "pow_symbol",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -182,15 +71,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean",
-          "named": true
-        },
-        {
           "type": "factor",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -200,62 +81,12 @@
         {
           "type": "shebang",
           "named": true
-        },
-        {
-          "type": "string",
-          "named": true
         }
       ]
     }
   },
   {
-    "type": "string",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "unicode_exponent",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "!",
-    "named": false
-  },
-  {
-    "type": "!=",
-    "named": false
-  },
-  {
-    "type": "\"",
-    "named": false
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
-    "named": false
-  },
-  {
     "type": "*",
-    "named": false
-  },
-  {
-    "type": "**",
-    "named": false
-  },
-  {
-    "type": ",",
-    "named": false
-  },
-  {
-    "type": "-",
-    "named": false
-  },
-  {
-    "type": "->",
     "named": false
   },
   {
@@ -263,167 +94,15 @@
     "named": false
   },
   {
-    "type": "//",
-    "named": false
-  },
-  {
-    "type": ":",
-    "named": false
-  },
-  {
-    "type": "::",
-    "named": false
-  },
-  {
-    "type": "<",
-    "named": false
-  },
-  {
-    "type": "<=",
-    "named": false
-  },
-  {
-    "type": "=",
-    "named": false
-  },
-  {
-    "type": "==",
-    "named": false
-  },
-  {
-    "type": ">",
-    "named": false
-  },
-  {
-    "type": ">=",
-    "named": false
-  },
-  {
-    "type": "@",
-    "named": false
-  },
-  {
-    "type": "^",
-    "named": false
-  },
-  {
-    "type": "aliases(",
-    "named": false
-  },
-  {
-    "type": "assert_eq",
-    "named": false
-  },
-  {
-    "type": "binary_prefixes",
-    "named": false
-  },
-  {
-    "type": "both",
-    "named": false
-  },
-  {
-    "type": "dimension",
-    "named": false
-  },
-  {
-    "type": "else",
-    "named": false
-  },
-  {
-    "type": "false",
-    "named": false
-  },
-  {
-    "type": "fn",
-    "named": false
-  },
-  {
-    "type": "identifier",
-    "named": true
-  },
-  {
-    "type": "if",
-    "named": false
-  },
-  {
-    "type": "let",
-    "named": false
-  },
-  {
     "type": "line_comment",
     "named": true
-  },
-  {
-    "type": "long",
-    "named": false
-  },
-  {
-    "type": "metric_prefixes",
-    "named": false
-  },
-  {
-    "type": "none",
-    "named": false
-  },
-  {
-    "type": "per",
-    "named": false
-  },
-  {
-    "type": "plus",
-    "named": true
-  },
-  {
-    "type": "print",
-    "named": false
   },
   {
     "type": "shebang",
     "named": true
   },
   {
-    "type": "short",
-    "named": false
-  },
-  {
-    "type": "then",
-    "named": false
-  },
-  {
-    "type": "to",
-    "named": false
-  },
-  {
-    "type": "true",
-    "named": false
-  },
-  {
-    "type": "type",
-    "named": false
-  },
-  {
-    "type": "unit",
-    "named": false
-  },
-  {
-    "type": "use",
-    "named": false
-  },
-  {
-    "type": "²",
-    "named": false
-  },
-  {
-    "type": "³",
-    "named": false
-  },
-  {
     "type": "·",
-    "named": false
-  },
-  {
-    "type": "¹",
     "named": false
   },
   {
@@ -432,50 +111,6 @@
   },
   {
     "type": "÷",
-    "named": false
-  },
-  {
-    "type": "⁴",
-    "named": false
-  },
-  {
-    "type": "⁵",
-    "named": false
-  },
-  {
-    "type": "⁶",
-    "named": false
-  },
-  {
-    "type": "⁷",
-    "named": false
-  },
-  {
-    "type": "⁸",
-    "named": false
-  },
-  {
-    "type": "⁹",
-    "named": false
-  },
-  {
-    "type": "⁻",
-    "named": false
-  },
-  {
-    "type": "→",
-    "named": false
-  },
-  {
-    "type": "≠",
-    "named": false
-  },
-  {
-    "type": "≤",
-    "named": false
-  },
-  {
-    "type": "≥",
     "named": false
   }
 ]
