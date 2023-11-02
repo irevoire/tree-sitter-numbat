@@ -52,12 +52,6 @@ module.exports = grammar({
 
     number: $ => prec(PREC.number, choice(
       $._float,
-      token(choice(
-          /[0-9][0-9_]*/,
-          /0x[0-9a-fA-F_]+/,
-          /0b[01_]+/,
-          /0o[0-7_]+/,
-        )),
     )),
 
     //! multiply        →   "*" | "·" | "×"
