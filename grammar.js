@@ -298,7 +298,7 @@ module.exports = grammar({
     //! ifactor         →   power ( " " power ) *
     ifactor: $ => prec.left(PREC.ifactor, seq(
       field("left", $._expression),
-      // space are automatically inserted
+      // space are automatically ignored
       field("right", $._primary),
     )),
 
@@ -380,13 +380,13 @@ module.exports = grammar({
     ),
 
     number: $ => prec(PREC.number, choice(
+      $._float,
       token(choice(
           /[0-9][0-9_]*/,
           /0x[0-9a-fA-F_]+/,
           /0b[01_]+/,
           /0o[0-7_]+/,
         )),
-        $._float,
     )),
 
     //! identifier      →   [a-zA-Z_][a-zA-Z_0-9]*

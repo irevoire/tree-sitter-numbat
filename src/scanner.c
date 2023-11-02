@@ -1,4 +1,5 @@
 #include <tree_sitter/parser.h>
+#include <stdio.h>
 #include <wctype.h>
 
 enum TokenType {
@@ -38,18 +39,29 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
   }
 
   if (valid_symbols[FLOAT] && (iswdigit(lexer->lookahead) || lexer->lookahead == '.')) {
+    printf("Called for float with char %c\n", lexer->lookahead);
     bool has_fraction = false, has_exponent = false;
     lexer->result_symbol = FLOAT;
 
+    // If the float looks like 12.13
+    // we can skip all the numbers until we reach the dot
     if (lexer->lookahead != '.') {
-      advance(lexer);
+      printf("Wipe out everything before the dot\n");
       while (is_num_char(lexer->lookahead)) {
         advance(lexer);
       }
+    } else {
+      printf("There is nothing before the dot\n");
     }
+    // Else if it look like .13 => nothing to do
+
+    // Once we reach this point, we must have either a point or a scientific writing
+    
+    // Parsing the point if there is one, both 12.13 and .13 should validate this condition
     if (lexer->lookahead == '.') {
       has_fraction = true;
-      advance(lexer);
+      advance(lexer); // skip the point
+      printf("after point I have %c\n", lexer->lookahead);
       if (iswalpha(lexer->lookahead)) {
           // The dot is followed by a letter: 1.max(2) => not a float but an integer
           return false;
@@ -82,7 +94,7 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
       lexer->mark_end(lexer);
     }
 
-    if (!has_exponent && !has_fraction) return false;
+    if (!(has_exponent || has_fraction)) return false;
 
     lexer->mark_end(lexer);
     return true;
