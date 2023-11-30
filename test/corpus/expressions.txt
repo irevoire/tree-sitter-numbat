@@ -41,10 +41,9 @@ fact!
   (factorial
     (number))
   (factorial
-    (ifactor
-      (factorial
-        (number))
-      (number)))
+    (number))
+  (factorial
+    (number))
   (factorial
     (number))
   (factorial

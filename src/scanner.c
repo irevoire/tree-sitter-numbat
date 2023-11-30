@@ -24,7 +24,7 @@ static bool is_num_char(int32_t c) {
 bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
                                             const bool *valid_symbols) {
 
-  while (iswspace(lexer->lookahead)) lexer->advance(lexer, true);
+  while (lexer->lookahead != '\n' && iswspace(lexer->lookahead)) lexer->advance(lexer, true);
   
   if (valid_symbols[STRING_CONTENT] && !valid_symbols[FLOAT]) {
     bool has_content = false;

@@ -42,35 +42,21 @@ Floating-point literals
 --------------------------------------------------------------------------------
 
 (source_file
-  (ifactor
-    (ifactor
-      (ifactor
-        (ifactor
-          (ifactor
-            (ifactor
-              (ifactor
-                (ifactor
-                  (ifactor
-                    (ifactor
-                      (ifactor
-                        (ifactor
-                          (ifactor
-                            (ifactor
-                              (number)
-                              (number))
-                            (number))
-                          (number))
-                        (number))
-                      (number))
-                    (number))
-                  (number))
-                (number))
-              (number))
-            (number))
-          (number))
-        (number))
-      (number))
-    (number)))
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number)
+  (number))
 
 ================================================================================
 String literals
