@@ -9,9 +9,7 @@ fn pi() = 3.14
 (source_file
   (function_decl
     (identifier)
-    (ifactor
-      (number)
-      (number))))
+    (number)))
 
 ================================================================================
 Function definition with parameters
@@ -26,11 +24,9 @@ fn multipi(a, b, c) = a * 3.14 * b * c
   (function_decl
     (identifier)
     (identifier)
-    (ifactor
-      (factor
-        (identifier)
-        (multiply)
-        (number))
+    (factor
+      (identifier)
+      (multiply)
       (number)))
   (function_decl
     (identifier)
@@ -39,11 +35,9 @@ fn multipi(a, b, c) = a * 3.14 * b * c
     (identifier)
     (factor
       (factor
-        (ifactor
-          (factor
-            (identifier)
-            (multiply)
-            (number))
+        (factor
+          (identifier)
+          (multiply)
           (number))
         (multiply)
         (identifier))
@@ -63,17 +57,13 @@ fn pi2(n: Scalar) -> Scalar = n * 3.14
   (function_decl
     (identifier)
     (identifier)
-    (ifactor
-      (number)
-      (number)))
+    (number))
   (function_decl
     (identifier)
     (identifier)
     (identifier)
     (identifier)
-    (ifactor
-      (factor
-        (identifier)
-        (multiply)
-        (number))
+    (factor
+      (identifier)
+      (multiply)
       (number))))

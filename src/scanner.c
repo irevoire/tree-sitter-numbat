@@ -23,6 +23,9 @@ static bool is_num_char(int32_t c) {
 
 bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
                                             const bool *valid_symbols) {
+
+  while (iswspace(lexer->lookahead)) lexer->advance(lexer, true);
+  
   if (valid_symbols[STRING_CONTENT] && !valid_symbols[FLOAT]) {
     bool has_content = false;
     for (;;) {
@@ -39,19 +42,13 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
   }
 
   if (valid_symbols[FLOAT] && (iswdigit(lexer->lookahead) || lexer->lookahead == '.')) {
-    printf("Called for float with char %c\n", lexer->lookahead);
     bool has_fraction = false, has_exponent = false;
     lexer->result_symbol = FLOAT;
 
     // If the float looks like 12.13
     // we can skip all the numbers until we reach the dot
     if (lexer->lookahead != '.') {
-      printf("Wipe out everything before the dot\n");
-      while (is_num_char(lexer->lookahead)) {
-        advance(lexer);
-      }
-    } else {
-      printf("There is nothing before the dot\n");
+      while (is_num_char(lexer->lookahead)) advance(lexer);
     }
     // Else if it look like .13 => nothing to do
 
@@ -61,18 +58,13 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
     if (lexer->lookahead == '.') {
       has_fraction = true;
       advance(lexer); // skip the point
-      printf("after point I have %c\n", lexer->lookahead);
       if (iswalpha(lexer->lookahead)) {
           // The dot is followed by a letter: 1.max(2) => not a float but an integer
           return false;
       }
 
-      if (lexer->lookahead == '.') {
-        return false;
-      }
-      while (is_num_char(lexer->lookahead)) {
-        advance(lexer);
-      }
+      if (lexer->lookahead == '.') return false;
+      while (is_num_char(lexer->lookahead)) advance(lexer);
     }
 
     lexer->mark_end(lexer);
@@ -83,13 +75,10 @@ bool tree_sitter_numbat_external_scanner_scan(void *payload, TSLexer *lexer,
       if (lexer->lookahead == '+' || lexer->lookahead == '-') {
         advance(lexer);
       }
-      if (!is_num_char(lexer->lookahead)) {
-        return true;
-      }
+      if (!is_num_char(lexer->lookahead)) return true;
       advance(lexer);
-      while (is_num_char(lexer->lookahead)) {
-        advance(lexer);
-      }
+
+      while (is_num_char(lexer->lookahead)) advance(lexer);
 
       lexer->mark_end(lexer);
     }

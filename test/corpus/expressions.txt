@@ -7,9 +7,7 @@ abc
 --------------------------------------------------------------------------------
 
 (source_file
-  (identifier)
-  (factorial
-    (number)))
+  (identifier))
 
 ================================================================================
 Unary operator expressions
@@ -43,9 +41,10 @@ fact!
   (factorial
     (number))
   (factorial
-    (number))
-  (factorial
-    (number))
+    (ifactor
+      (factorial
+        (number))
+      (number)))
   (factorial
     (number))
   (factorial

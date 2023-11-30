@@ -61,6 +61,34 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "variable_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dimension_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "decorator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unit_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_import"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "procedure_call"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_expression"
         }
       ]
@@ -812,7 +840,59 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "postfix_apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "conversion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comparison"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "term"
+        },
+        {
+          "type": "SYMBOL",
           "name": "factor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "per_factor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "negate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ifactor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "power"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "factorial"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unicode_power"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_parenthesized_expression"
         },
         {
           "type": "SYMBOL",

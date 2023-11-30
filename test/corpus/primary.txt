@@ -42,21 +42,35 @@ Floating-point literals
 --------------------------------------------------------------------------------
 
 (source_file
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number)
-  (number))
+  (ifactor
+    (ifactor
+      (ifactor
+        (ifactor
+          (ifactor
+            (ifactor
+              (ifactor
+                (ifactor
+                  (ifactor
+                    (ifactor
+                      (ifactor
+                        (ifactor
+                          (ifactor
+                            (ifactor
+                              (number)
+                              (number))
+                            (number))
+                          (number))
+                        (number))
+                      (number))
+                    (number))
+                  (number))
+                (number))
+              (number))
+            (number))
+          (number))
+        (number))
+      (number))
+    (number)))
 
 ================================================================================
 String literals
@@ -79,7 +93,11 @@ String literals
   (string)
   (string)
   (string)
-  (string))
+  (ERROR
+    (UNEXPECTED '\')
+    (ifactor
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Boolean literals
