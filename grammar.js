@@ -129,12 +129,13 @@ module.exports = grammar({
       choice(
         "metric_prefixes",
         "binary_prefixes",
-        seq("aliases(", $._list_of_aliases, ")")
+        seq("aliases", $._list_of_aliases)
       ),
     ),
 
     //! list_of_aliases →   "@" ( "metric_prefixes" | "binary_prefixes" | ( "aliases(" list_of_alsiases ")" ) )
     _list_of_aliases: $ => seq(
+      "(",
       repeat(seq(
         $.identifier,
         optional(seq(":", choice("long", "short", "both", "none"))),
@@ -143,7 +144,8 @@ module.exports = grammar({
       seq(
         $.identifier,
         optional(seq(":", choice("long", "short", "both", "none"))),
-      )
+      ),
+      ")"
     ),
 
     
