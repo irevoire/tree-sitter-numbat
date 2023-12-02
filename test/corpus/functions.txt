@@ -12,6 +12,18 @@ fn pi() = 3.14
     (number)))
 
 ================================================================================
+Function definition without body
+================================================================================
+
+fn pi()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_decl
+    (identifier)))
+
+================================================================================
 Function definition with parameters
 ================================================================================
 
@@ -72,3 +84,40 @@ fn pi2(n: Scalar) -> Scalar = n * 3.14
       (identifier)
       (multiply)
       (number))))
+
+================================================================================
+Bug #2
+================================================================================
+
+fn from_fahrenheit(t_fahrenheit: Scalar) -> Temperature
+fn to_fahrenheit(t_kelvin: Temperature) -> Scalar = (t_kelvin / kelvin) / scale_fahrenheit - offset_fahrenheit
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_decl
+    (identifier)
+    (identifier)
+    (dimension_expr
+      (identifier))
+    (type_annotation
+      (dimension_expr
+        (identifier))))
+  (function_decl
+    (identifier)
+    (identifier)
+    (dimension_expr
+      (identifier))
+    (type_annotation
+      (dimension_expr
+        (identifier)))
+    (factor
+      (factor
+        (identifier)
+        (divide)
+        (identifier))
+      (divide)
+      (term
+        (identifier)
+        (minus)
+        (identifier)))))

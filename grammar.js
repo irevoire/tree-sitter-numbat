@@ -75,14 +75,16 @@ module.exports = grammar({
     function_decl: $ => seq(
       "fn",
       field("name", $.identifier),
-      field("type_parameter", optional($._fn_decl_generic)),
+      optional(field("type_parameter", $._fn_decl_generic)),
       $._fn_decl_param,
       optional(seq(
         "->",
         $.type_annotation,
       )),
-      "=",
-      field("body", $._expression)
+      optional(seq(
+        "=",
+        field("body", $._expression)
+      ))
     ),
 
     //! fn_decl_generic →   "<" ( identifier "," ) * identifier ? ">"
