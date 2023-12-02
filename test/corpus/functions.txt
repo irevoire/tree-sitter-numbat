@@ -56,13 +56,18 @@ fn pi2(n: Scalar) -> Scalar = n * 3.14
 (source_file
   (function_decl
     (identifier)
-    (identifier)
+    (type_annotation
+      (dimension_expr
+        (identifier)))
     (number))
   (function_decl
     (identifier)
     (identifier)
-    (identifier)
-    (identifier)
+    (dimension_expr
+      (identifier))
+    (type_annotation
+      (dimension_expr
+        (identifier)))
     (factor
       (identifier)
       (multiply)

@@ -64,7 +64,7 @@ module.exports = grammar({
     variable_decl: $ => seq(
       "let",
       field("name", $.identifier),
-      field("type_parameter", optional(seq(":", $._type_annotation))),
+      field("type_parameter", optional(seq(":", $.type_annotation))),
       "=",
       field("value", $._expression)
     ),
@@ -79,7 +79,7 @@ module.exports = grammar({
       $._fn_decl_param,
       optional(seq(
         "->",
-        $._type_annotation,
+        $.type_annotation,
       )),
       "=",
       field("body", $._expression)
@@ -98,12 +98,12 @@ module.exports = grammar({
       "(",
       repeat(seq(
         $.identifier,
-        optional(seq(":", $._dimension_expr)),
+        optional(seq(":", $.dimension_expr)),
         ",",
       )),
       optional(seq(
         $.identifier,
-        optional(seq(":", $._dimension_expr)),
+        optional(seq(":", $.dimension_expr)),
       )),
       ")",
     ),
@@ -112,10 +112,10 @@ module.exports = grammar({
     //! dimension_decl  →   "dimension" identifier ( "=" dimension_expr ) *
     dimension_decl: $ => seq(
       "dimension",
-      $.identifier,
+      field("name", $.identifier),
       repeat(seq(
         "=",
-        $._dimension_expr
+        $.dimension_expr
       ))
     ),
 
@@ -150,7 +150,7 @@ module.exports = grammar({
     unit_decl: $ => seq(
       "unit",
       optional(seq(
-        ":", $._dimension_expr
+        ":", $.dimension_expr
       )),
       optional(seq(
         "=", $._expression
@@ -170,19 +170,19 @@ module.exports = grammar({
     procedure_call: $ => seq(
       choice("print", "assert_eq", "type"),
       "(",
-      $._arguments,
+      $.arguments,
       ")",
     ),
 
     //! type_annotation →   boolean | string | dimension_expr
-    _type_annotation: $ => choice(
+    type_annotation: $ => choice(
       $.boolean,
       $.string,
-      $._dimension_expr
+      $.dimension_expr
     ),
 
     //! dimension_expr  →   dim_factor
-    _dimension_expr: $ => choice(
+    dimension_expr: $ => choice(
       $._dim_factor,
       $._dim_power,
       $._dim_exponent,
@@ -191,14 +191,14 @@ module.exports = grammar({
 
     //! dim_factor      →   dim_power ( (multiply | divide) dim_power ) *
     _dim_factor: $ => prec.left(PREC.dim_factor, seq(
-      $._dimension_expr,
+      $.dimension_expr,
       choice($.multiply, $.divide),
-      $._dimension_expr,
+      $.dimension_expr,
     )),
 
     //! dim_power       →   dim_primary ( power dim_exponent | unicode_exponent ) ?
     _dim_power: $ => prec(PREC.dim_power, seq(
-      $._dimension_expr,
+      $.dimension_expr,
       choice(
         seq($.power, $._dim_exponent),
         $.unicode_exponent,
@@ -216,7 +216,7 @@ module.exports = grammar({
     _dim_primary: $ => prec(PREC.dim_primary, choice(
       $.identifier,
       $.number,
-      seq("(", $._dimension_expr, ")"),
+      seq("(", $.dimension_expr, ")"),
     )),
 
     // ============ EXPRESSION
@@ -324,14 +324,14 @@ module.exports = grammar({
 
     //! call            →   primary ( "(" arguments? ")" ) ?
     call: $ => prec(PREC.call, seq(
-      $.identifier,
+      field("name", $.identifier),
       "(",
-      optional($._arguments),
+      optional($.arguments),
       ")"
     )),
 
     //! arguments       →   expression ( "," expression ) *
-    _arguments: $ => seq(
+    arguments: $ => seq(
       $._expression,
       optional(seq(
         ",",
@@ -357,13 +357,13 @@ module.exports = grammar({
     string: $ => prec(PREC.string, seq(
       alias(/b?"/, '"'),
       repeat(choice(
-        $._escape_sequence,
+        $.escape_sequence,
         $._string_content,
       )),
       token.immediate('"'),
     )),
 
-    _escape_sequence: _ => token.immediate(
+    escape_sequence: _ => token.immediate(
       seq('\\',
         choice(
           /[^xu]/,

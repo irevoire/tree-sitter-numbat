@@ -10,12 +10,15 @@ type(2 < 3)
 
 (source_file
   (procedure_call
-    (string))
+    (arguments
+      (string)))
   (procedure_call
-    (comparison
-      (number)
-      (number)))
+    (arguments
+      (comparison
+        (number)
+        (number))))
   (procedure_call
-    (comparison
-      (number)
-      (number))))
+    (arguments
+      (comparison
+        (number)
+        (number)))))

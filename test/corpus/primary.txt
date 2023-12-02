@@ -75,13 +75,19 @@ String literals
 (source_file
   (string)
   (string)
+  (string
+    (escape_sequence))
+  (string
+    (escape_sequence)
+    (escape_sequence))
   (string)
-  (string)
-  (string)
-  (string)
-  (ERROR
-    (UNEXPECTED '\')
-    (ifactor
+  (string
+    (escape_sequence)
+    (escape_sequence))
+  (string
+    (escape_sequence)
+    (ERROR
+      (UNEXPECTED '\')
       (identifier)
       (identifier))))
 

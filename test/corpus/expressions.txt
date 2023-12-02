@@ -157,11 +157,13 @@ add(1, 2)
     (identifier))
   (call
     (identifier)
-    (number))
+    (arguments
+      (number)))
   (call
     (identifier)
-    (number)
-    (number)))
+    (arguments
+      (number)
+      (number))))
 
 ================================================================================
 Assignment expressions
@@ -191,15 +193,17 @@ let x = (pow(2) + 2) * 2
   (variable_decl
     name: (identifier)
     value: (call
-      (identifier)
-      (number)))
+      name: (identifier)
+      (arguments
+        (number))))
   (variable_decl
     name: (identifier)
     value: (factor
       left: (term
         left: (call
-          (identifier)
-          (number))
+          name: (identifier)
+          (arguments
+            (number)))
         op: (plus)
         right: (number))
       op: (multiply)

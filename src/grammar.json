@@ -123,7 +123,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "_type_annotation"
+                    "name": "type_annotation"
                   }
                 ]
               },
@@ -194,7 +194,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_type_annotation"
+                  "name": "type_annotation"
                 }
               ]
             },
@@ -286,7 +286,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "_dimension_expr"
+                        "name": "dimension_expr"
                       }
                     ]
                   },
@@ -324,7 +324,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "_dimension_expr"
+                          "name": "dimension_expr"
                         }
                       ]
                     },
@@ -354,8 +354,12 @@
           "value": "dimension"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "REPEAT",
@@ -368,7 +372,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_dimension_expr"
+                "name": "dimension_expr"
               }
             ]
           }
@@ -539,7 +543,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_dimension_expr"
+                  "name": "dimension_expr"
                 }
               ]
             },
@@ -626,7 +630,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_arguments"
+          "name": "arguments"
         },
         {
           "type": "STRING",
@@ -634,7 +638,7 @@
         }
       ]
     },
-    "_type_annotation": {
+    "type_annotation": {
       "type": "CHOICE",
       "members": [
         {
@@ -647,11 +651,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_dimension_expr"
+          "name": "dimension_expr"
         }
       ]
     },
-    "_dimension_expr": {
+    "dimension_expr": {
       "type": "CHOICE",
       "members": [
         {
@@ -680,7 +684,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_dimension_expr"
+            "name": "dimension_expr"
           },
           {
             "type": "CHOICE",
@@ -697,7 +701,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_dimension_expr"
+            "name": "dimension_expr"
           }
         ]
       }
@@ -710,7 +714,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_dimension_expr"
+            "name": "dimension_expr"
           },
           {
             "type": "CHOICE",
@@ -824,7 +828,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_dimension_expr"
+                "name": "dimension_expr"
               },
               {
                 "type": "STRING",
@@ -1381,8 +1385,12 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "identifier"
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
           },
           {
             "type": "STRING",
@@ -1393,7 +1401,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_arguments"
+                "name": "arguments"
               },
               {
                 "type": "BLANK"
@@ -1407,7 +1415,7 @@
         ]
       }
     },
-    "_arguments": {
+    "arguments": {
       "type": "SEQ",
       "members": [
         {
@@ -1501,7 +1509,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_escape_sequence"
+                  "name": "escape_sequence"
                 },
                 {
                   "type": "SYMBOL",
@@ -1520,7 +1528,7 @@
         ]
       }
     },
-    "_escape_sequence": {
+    "escape_sequence": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "SEQ",
