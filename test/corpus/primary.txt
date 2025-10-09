@@ -103,3 +103,24 @@ false
 (source_file
   (boolean)
   (boolean))
+
+================================================================================
+Identifier
+================================================================================
+
+kefir
+kefir_du_vigan
+kefir_du_30
+_kefir
+_kefir_30
+_str_find
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier))

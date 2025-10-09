@@ -123,7 +123,6 @@ module.exports = grammar({
       ))
     ),
 
-
     // ============ DECORATOR
     //! decorator       →   "@" ( "metric_prefixes" | "binary_prefixes" | ( "aliases(" list_of_alsiases ")" ) )
     decorator: $ => seq(
@@ -149,7 +148,6 @@ module.exports = grammar({
       ),
       ")"
     ),
-
 
     // ============ UNIT DECLARATION
     //! unit_decl       →   "unit" ( ":" dimension_expr ) ? ( "=" expression ) ?
