@@ -90,6 +90,8 @@ a > b
 a < b
 a == b
 a b
+a || b
+a && b
 
 --------------------------------------------------------------------------------
 
@@ -120,6 +122,12 @@ a b
     (identifier)
     (identifier))
   (ifactor
+    (identifier)
+    (identifier))
+  (logical_or
+    (identifier)
+    (identifier))
+  (logical_and
     (identifier)
     (identifier)))
 

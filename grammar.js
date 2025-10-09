@@ -1,19 +1,21 @@
 const PREC = {
-  string: 23,
-  hex_number: 22,
-  oct_number: 21,
-  bin_number: 20,
-  number: 19,
-  identifier: 18,
+  string: 25,
+  hex_number: 24,
+  oct_number: 23,
+  bin_number: 22,
+  number: 21,
+  identifier: 20,
 
-  dim_primary: 17,
-  dim_exponent: 16,
-  dim_power: 15,
-  dim_factor: 14,
+  dim_primary: 19,
+  dim_exponent: 18,
+  dim_power: 17,
+  dim_factor: 16,
 
-  postfix_apply: 13,
-  condition: 12,
-  conversion: 11,
+  postfix_apply: 15,
+  condition: 14,
+  conversion: 13,
+  logical_and: 12,
+  logical_or: 11,
   comparison: 10,
   term: 9,
   factor: 8,
@@ -230,6 +232,8 @@ module.exports = grammar({
       $.postfix_apply,
       $.condition,
       $.conversion,
+      $.logical_or,
+      $.logical_and,
       $.comparison,
       $.term,
       $.factor,
@@ -271,6 +275,20 @@ module.exports = grammar({
       field("left", $._expression),
       field("op", choice("→", "->", "to")),
       field("right", $._expression)
+    )),
+
+    //! logical_or      →   logical_and ("||" logical_end) term ) *
+    logical_or: $ => prec.left(PREC.logical_or, seq(
+      field("left", $._expression),
+      field("op", "||"),
+      field("right", $._expression),
+    )),
+
+    //! logical_and      →   comparison ("&&" comparison) term ) *
+    logical_and: $ => prec.left(PREC.logical_and, seq(
+      field("left", $._expression),
+      field("op", "&&"),
+      field("right", $._expression),
     )),
 
     //! comparison      →   term ( (">" | ">="| "≥" | "<" | "<=" | "≤" | "==" | "!=" | "≠" ) term ) *
