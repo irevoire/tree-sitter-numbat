@@ -6,7 +6,7 @@ const PREC = {
   number: 19,
   identifier: 18,
 
-  dim_primary: 17,  
+  dim_primary: 17,
   dim_exponent: 16,
   dim_power: 15,
   dim_factor: 14,
@@ -59,7 +59,7 @@ module.exports = grammar({
       $.procedure_call,
       $._expression
     ),
-    
+
     //! variable_decl   →   "let" identifier ( ":" type_annotation ) ? "=" expression
     variable_decl: $ => seq(
       "let",
@@ -148,7 +148,7 @@ module.exports = grammar({
       ")"
     ),
 
-    
+
     // ============ UNIT DECLARATION
     //! unit_decl       →   "unit" ( ":" dimension_expr ) ? ( "=" expression ) ?
     unit_decl: $ => seq(
@@ -224,7 +224,7 @@ module.exports = grammar({
     )),
 
     // ============ EXPRESSION
-    
+
     //! expression      →   postfix_apply
     _expression: $ => choice(
       $.postfix_apply,
@@ -254,11 +254,16 @@ module.exports = grammar({
     //! condition       →   "if" conversion "then" condition "else" condition | conversion
     condition: $ => prec.left(PREC.condition, seq(
       "if",
-      field("if", $._expression),
+      optional(repeat("\n")),
+      field("condition", $._expression),
+      optional(repeat("\n")),
       "then",
+      optional(repeat("\n")),
       field("then", $._expression),
+      optional(repeat("\n")),
       "else",
-      field("else", $._expression)
+      optional(repeat("\n")),
+      field("else", $._expression),
     )),
 
     //! conversion      →   comparison ( ( "→" | "->" | "to" ) comparison ) *
@@ -318,7 +323,7 @@ module.exports = grammar({
 
     //! factorial       →   unicode_power "!" *
     factorial: $ => prec(PREC.factorial, seq($._expression, "!")),
-    
+
     //! unicode_power   →   call ( "⁻" ? ("¹" | "²" | "³" | "⁴" | "⁵" ) ) ?
     unicode_power: $ => prec(PREC.unicode_power, seq(
       field("left", $._expression),
@@ -410,10 +415,10 @@ module.exports = grammar({
 
     //! pow_symbol      →   "**" | "^"
     pow_symbol: $ => choice("**", "^"),
-    
-    //! unicode_exponent→    "¹" | "²" | "³" | "⁴" | "⁵" | "⁶" | "⁷" | "⁸" | "⁹" 
+
+    //! unicode_exponent→    "¹" | "²" | "³" | "⁴" | "⁵" | "⁶" | "⁷" | "⁸" | "⁹"
     unicode_exponent: $ => choice( "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"),
-   
+
     line_comment: _ => token(seq(
       '#', /.*/,
     )),
