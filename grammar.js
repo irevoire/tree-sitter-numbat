@@ -85,8 +85,23 @@ module.exports = grammar({
       )),
       optional(seq(
         "=",
-        field("body", $._expression)
-      ))
+        repeat("\n"),
+        field("body", $._expression),
+        optional(seq(
+          repeat("\n"),
+          "where",
+          repeat("\n"),
+          $.identifier, "=", $._expression,
+          // repeat(
+          //   seq(
+          //     repeat("\n"),
+          //     token("and"),
+          //     repeat("\n"),
+          //     $.identifier, "=", $._expression,
+          //   )
+          // ),
+        )),
+      )),
     ),
 
     //! fn_decl_generic →   "<" ( identifier "," ) * identifier ? ">"
