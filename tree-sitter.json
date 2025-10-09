@@ -1,0 +1,45 @@
+{
+  "grammars": [
+    {
+      "name": "numbat",
+      "camelcase": "Numbat",
+      "scope": "source.nbt",
+      "path": ".",
+      "file-types": [
+        "nbt"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injections": [
+        "queries/injections.scm"
+      ],
+      "tags": [
+        "queries/tags.scm"
+      ],
+      "injection-regex": "numbat"
+    }
+  ],
+  "metadata": {
+    "version": "0.25.2",
+    "license": "MIT",
+    "description": "Numbat grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Tamo",
+        "email": "irevoire@protonmail.ch"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/irevoire/tree-sitter-numbat"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
